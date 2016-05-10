@@ -8,7 +8,7 @@ import csv
 def compare(csvOut, dbase1, dbase2, command):
     if type(dbase1) != str or type(dbase2) != str or type(command) != str:
         print "Input type error"
-        return None
+        return
 
  
     
@@ -34,7 +34,6 @@ def compare(csvOut, dbase1, dbase2, command):
             
             if resultOne == resultTwo:
                 print "Matched"
-                
             else:
                 print "Not matched"
                 
@@ -65,3 +64,13 @@ def iterate(filename, dbase1, dbase2, commandList):
             compare(csvHandler, dbase1, dbase2, c)
 
     fileInstance.close()
+
+
+def iterateUsingTextList(fileout,dbase1,dbase2,commandfile):
+    f = open(commandfile,'r')
+    for lines in f:
+        print lines
+        iterate(fileout,dbase1,dbase2,lines)
+
+    f.close()            
+           
