@@ -47,7 +47,7 @@ def ConvertCSV(fileIn, fileOut):
         output = output + "},{"
         
     output = output[:-2]
-    output= output+"}]"
+    output= output+"]"
     o.write(output)
     o.close()
     i.close()
