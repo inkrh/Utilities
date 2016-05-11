@@ -1,3 +1,5 @@
+import csv
+
 def isInt(s):
     try:
         int(s)
@@ -29,32 +31,24 @@ def stringFloatOrInt(s):
 def ConvertCSV(fileIn, fileOut):
     i = open(fileIn,'r')
     o = open(fileOut, 'w')
-    outputJson = "{"
-    titleLine = i.readline()
-    titleArray = titleLine.split(',')
-    actualTitleArray = []
-    for item in titleArray:
-        if len(item.strip()) > 0:
-                actualTitleArray.append(item)
+    r = csv.reader(i)
+    a = []
+    for row in r:
+        a.append([row])
+    print(len(a))
+    print(len(a[0][0]))
+    output = "[{"
 
-    outputJson = outputJson + "\"" + actualTitleArray[0] + "\":["
-    
-    for line in i:
-        each = line.split(',')
-        if len(each[0]) > 0:
-            outputJson = outputJson + "{\"" + each[0] + "\":[{"
-            for item in range(1,min(len(each),len(actualTitleArray))-1):
-                if len(each[item]) > 0:
-                    outputJson = outputJson + "\""+actualTitleArray[item] + "\":" + str(stringFloatOrInt(each[item])) +","
-            if outputJson[len(outputJson)-1] == ",":
-                outputJson = outputJson[:-1]
-            outputJson = outputJson + "}]},"
+    for rows in range(1,len(a)-1):
+        for column in range(0,len(a[0][0])-1):
+            output = output + "\"" + a[0][0][column] + "\":" + str(stringFloatOrInt(a[rows][0][column])) +","
+
+        output = output[:-1]
+        output = output + "},{"
         
-    if outputJson[len(outputJson)-1] == ",":
-        outputJson = outputJson[:-1]
-    outputJson = outputJson + "]}"
-    o.write(outputJson)
-
+    output = output[:-2]
+    output= output+"}]"
+    o.write(output)
     o.close()
     i.close()
 
