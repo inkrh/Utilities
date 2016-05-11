@@ -16,13 +16,13 @@ def stringFloatOrInt(s):
     if s == "0":
         return 0
     
-    if isInt(s) != False:
+    if isInt(s):
         return isInt(s)
     
-    if isFloat(s) != False:
+    if isFloat(s):
         return isFloat(s)
 
-    return s
+    return "\""+str(s)+"\""
 
         
 
