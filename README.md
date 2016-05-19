@@ -1,3 +1,5 @@
 Backup repo of commonly used utilities
 
-Contents need a few tweaks here and there as I have time to do so / as I need to do so
+Some of the files are base-blocks which I adjust as/when for unique processing.
+
+Most need a few tweaks here and there, which I doas as I have time / need to do so
