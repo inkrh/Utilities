@@ -11,8 +11,8 @@ def splitSong(fi,prefix, chunkSize):
     count = 0
     suffix = ''
     if(len(song) > chunkSize):
-        for i in range(chunkSize,len(song),chunkSize):
-            o = song[:i]
+        for i in range(0,len(song),chunkSize):
+            o = song[i:i+chunkSize]
             if count < 10:
                 suffix = str(count)
             elif count > 9 and count < 16:
@@ -35,7 +35,8 @@ def listFilesWithExt(path, extension):
     return [os.path.join(path,f) for f in os.listdir(path) if f.endswith('.'+extension)]
 
 
-def Process(path,outputPath,extension):
+def Process(seconds, path,outputPath,extension):
+    chunkSize = seconds*1000
     startChar = 65
     maxUpper = 90
     startLower = 97
@@ -43,7 +44,7 @@ def Process(path,outputPath,extension):
     current = 65
     for i in listFilesWithExt(path,extension):
         prefix = chr(current)
-        splitSong(i,outputPath+"/"+prefix,10000)
+        splitSong(i,outputPath+"/"+prefix,chunkSize)
         current = current +1
         if current > maxUpper and current < startLower:
             current = startLower
