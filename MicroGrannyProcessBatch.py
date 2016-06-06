@@ -18,10 +18,13 @@ def splitSong(fi,prefix, chunkSize):
             elif count > 9 and count < 16:
                 suffix = hex(count).replace('0x','').capitalize()
             else:
+                print "max samples in slot reached"
                 break
+            
             oreduced = o.set_channels(1)
-            oreduced = o.set_sample_width(2)
-            oreduced = o.set_frame_rate(22050)
+            oreduced = oreduced.set_sample_width(2)
+            oreduced = oreduced.set_frame_rate(22050)
+
             print prefix+str(suffix)+".wav"
             oreduced.export(prefix+str(suffix)+".wav",format='wav')
             count = count + 1
@@ -39,17 +42,12 @@ def Process(seconds, path,outputPath,extension):
     chunkSize = seconds*1000
     startChar = 65
     maxUpper = 90
-    startLower = 97
-    maxLower = 122
     current = 65
     for i in listFilesWithExt(path,extension):
         prefix = chr(current)
         splitSong(i,outputPath+"/"+prefix,chunkSize)
-        current = current +1
-        if current > maxUpper and current < startLower:
-            current = startLower
-        if current > maxLower:
-            return "maxLower reached"
-
+        current = current + 1
+        if current > maxUpper:
+            return "maxUpper reached"
     return "done"
         
