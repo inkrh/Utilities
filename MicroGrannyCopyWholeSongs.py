@@ -4,7 +4,7 @@ import os
 def convertTrack(fi,fo):
     outData = ""
     print "processing " + fi
-    outData = outData + fi + "\n"
+    outData = outData + fi + " >> "
     if fi.endswith(".mp3"):
         song = AudioSegment.from_mp3(fi)
     else:
@@ -48,6 +48,7 @@ def Process(path,outputPath,extension):
             current2 = 0
             current = current + 1
             if current > maxUpper:
+                o.close()
                 return "maxUpper reached"
 
             
