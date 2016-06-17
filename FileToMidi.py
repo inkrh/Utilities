@@ -79,6 +79,7 @@ def MicroBrute(fi):
 def MicroGrannyNoSampleChange(fi):
     Run(fi,minnote=48,maxnote=83,timingdivisor=63.75,step=384,microgrannysamplechange=False)
 
-def MicroGranny(fi):
-    def MicroGrannyNoSampleChange(fi):
+def MicroGrannyNoSampleChange(fi):
     Run(fi,minnote=48,maxnote=83,timingdivisor=63.75,step=384)
+
+
