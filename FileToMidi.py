@@ -6,7 +6,6 @@ def Run(fi, timingdivisor=127, shortestnoteon=0.3125):
         f = imageFile.read()
         b = bytearray(f)
     
-    old = 0
     o = mido.open_output()
     for i in range(0,len(b)-2):
         sn = b[i]
@@ -19,11 +18,6 @@ def Run(fi, timingdivisor=127, shortestnoteon=0.3125):
             sv =sv/2
             
         print("sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
-        o.send(mido.Message('note_on', note=sn, velocity=sv))
-        time.sleep(max(shortestnoteon,t/timingdivisor))
-        o.send(mido.Message('note_off', note=old))
-
-        old = sn
-
-    o.send(mido.Message('note_off',note=old))
+        o.send(mido.Message('note_on', note=sn, velocity=sv, time=max(shortestnoteon,t/timingdivisor)))
+        
 
