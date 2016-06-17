@@ -39,9 +39,10 @@ def Run(fi, minnote=21,maxnote=108, minvelocity=21, timingdivisor=127, shortestn
             
         if sv > 127:
             sv =sv/2
-        if sv < 1:
-            sv = 1
 
+        
+        sv = max(sv,minvelocity)
+        
         sn= max(minnote,min(maxnote,sn))
         
         print("Byte set " + str(i) + " : sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
@@ -49,5 +50,5 @@ def Run(fi, minnote=21,maxnote=108, minvelocity=21, timingdivisor=127, shortestn
         o.send(mido.Message('note_on', note=sn, velocity=sv, time=t))
 
         if mono:
-            time.sleep(max(t,shortestnoteon))
+            time.sleep(t)
 
