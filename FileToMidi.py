@@ -1,7 +1,7 @@
 import mido
 import time
 
-def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortestnoteon=0.00390625, step=3, mono=True, microgranny=True, sendCC=True, sendsamplechange=True):
+def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortestnoteon=0.00390625, step=3, mono=True, microgranny=True, sendCC=True, sendsamplechange=True, loop=False):
 
     if minnote < 0:
         print("Negative minimum note")
@@ -28,8 +28,17 @@ def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortest
 
     ##send midi
     with mido.open_output() as o:
-        
-        for i in range(0,len(b)-2, step):
+        if(loop):
+            while True:
+                Play(o, b,minnote,maxnote,minvelocity,timingdivisor,shortestnoteon,step,mono,microgranny,sendCC,sendsamplechange)
+                
+        else:
+            Play(o, b,minnote,maxnote,minvelocity,timingdivisor,shortestnoteon,step,mono,microgranny,sendCC,sendsamplechange)
+
+
+def Play(o, b,minnote,maxnote,minvelocity,timingdivisor,shortestnoteon,step,mono,microgranny,sendCC,sendsamplechange):
+    for i in range(0,len(b)-2, step):
+   ## for i in range(23037,23046):
             ##note i, velocity i+1, time i+2
             sn = b[i]%127
             sv = b[i+1]%127
@@ -43,12 +52,13 @@ def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortest
                     ##send sample change
                     if sn in range(0,6):
                         o.send(mido.Message('note_on', note = sn))
+                        print("Sample change to "+ str(sn))
 
                     if sendCC:
                         ##send command change (sampleRate,crush,attack,release,grainSize,shiftSpeed,start,end)
                         if sn in range(102,111):
                             o.send(mido.Message('control_change',control=sn,value=sv))
-
+                            print("Control change to " + str(sn) + " : " +str(sv))
 
             ##set min velocity
             sv = max(sv,minvelocity)
@@ -56,11 +66,14 @@ def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortest
             ##set min and max note (wrapping aroung maxnote)
             sn = sn%maxnote
             sn= max(minnote,sn)
-
+ 
             ##because
             print("Byte set " + str(i) + " : sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
 
             ##send output
+##            if sn < minnote:
+##                o.send(mido.Message('note_off', time = t))
+##            else:
             o.send(mido.Message('note_on', note=sn, velocity=sv, time=t))
 
             ##one note at a time
@@ -76,10 +89,14 @@ def Run(fi, minnote=21, maxnote=108, minvelocity=64, timingdivisor=127, shortest
 def MicroBrute(fi):
     Run(fi,minnote=24,maxnote=47,step=192, microgranny=False)
 
-def MicroGrannyNoSampleChange(fi):
-    Run(fi,minnote=48,maxnote=83,timingdivisor=63.75,step=384,microgrannysamplechange=False)
+def MicroBruteLoop(fi):
+    Run(fi,minnote=24,maxnote=47,step=192, microgranny=False, loop=True)
+
 
 def MicroGrannyNoSampleChange(fi):
-    Run(fi,minnote=48,maxnote=83,timingdivisor=63.75,step=384)
+    Run(fi,minnote=48,maxnote=83,step=192,microgranny=True, sendsamplechange=False, loop=True)
+
+def MicroGrannySampleChange(fi):
+    Run(fi,minnote=48,maxnote=83,step=192)
 
 
