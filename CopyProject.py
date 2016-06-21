@@ -1,6 +1,7 @@
 import shutil, errno, os
 
-def copyanything(src, dst):
+##not my code
+def copyAnything(src, dst):
     try:
         print("Copying " + src + " to " + dst + "\n(this may take some time)")
         shutil.copytree(src, dst)
@@ -9,6 +10,7 @@ def copyanything(src, dst):
             shutil.copy(src, dst)
         else: raise
 
+##my code
 def replaceLine(line, oldName,newName):
     output = line
     output = output.replace(oldName,newName)
@@ -17,7 +19,7 @@ def replaceLine(line, oldName,newName):
     output = output.replace(oldName.capitalize(),newName.capitalize())
     return output
 
-def replacename(dst,oldName,newName):
+def replaceName(dst,oldName,newName):
     for root,subdirs,files in os.walk(dst):
         
         for f in files:
@@ -52,8 +54,8 @@ def replacename(dst,oldName,newName):
                     os.renames(fp,newfp)
                
 def CopyProject(src, dst, oldName, newName):
-    copyanything(src,dst)
-    replacename(dst,oldName,newName)
+    copyAnything(src,dst)
+    replaceName(dst,oldName,newName)
     
 
 
