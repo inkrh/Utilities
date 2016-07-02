@@ -1,5 +1,9 @@
 from pydub import AudioSegment
 import os
+import string
+
+fn1 = string.ascii_uppercase
+fn2 = string.digits+string.ascii_uppercase
 
 def convertTrack(fi,fo):
     outData = ""
@@ -23,33 +27,20 @@ def convertTrack(fi,fo):
 def listFilesWithExt(path, extension):
     return [os.path.join(path,f) for f in os.listdir(path) if f.endswith('.'+extension)]
 
-def OutFileName(char1Asc,char2Asc):
-    c1 = chr(char1Asc)
-    if char2Asc < 10:
-        c2 = str(char2Asc)
-    else:
-        c2 = hex(char2Asc).replace('0x','').capitalize()
-        
-    return c1+c2+".wav"
+def OutFileName(i):
+    return fn1[i/len(fn2)]+fn2[i%len(fn2)]+".wav"
 
 def Process(path,outputPath,extension):
     o = open(outputPath+"/index.txt",'w')
-    startChar = 65
-    maxUpper = 90
-    current = 65
-    secondCharLimit = 15
-    current2 = 0
-    for i in listFilesWithExt(path,extension):
-        fo = OutFileName(current,current2)
+    index = 0
+    for fi in listFilesWithExt(path,extension):
+        fo = OutFileName(index)
         
-        o.write(convertTrack(i,outputPath+"/"+fo))
-        current2 = current2 + 1
-        if current2 > secondCharLimit:
-            current2 = 0
-            current = current + 1
-            if current > maxUpper:
-                o.close()
-                return "maxUpper reached"
+        o.write(convertTrack(fi,outputPath+"/"+fo))
+        index += 1
+        if index > (len(fn1)*len(fn2))-1:
+            o.close()
+            return "maxUpper reached"
 
             
     o.close()
