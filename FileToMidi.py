@@ -72,29 +72,32 @@ def Play(o, b,minnote,maxnote,forcelowest, minvelocity, maxvelocity, timingdivis
             ##NB most randomly chosen files will have a lot of notes less than
             ##any given minnote
                                 
-            sn = sn%maxnote
-
             if forcelowest:
-                sn= max(minnote,sn)
+                sn = sn%maxnote
+            else:
+                noterange = maxnote-minnote
+                sn = (sn%noterange)+minnote
 
-
+                    
             ##set min and max velocity
-            sv = max(sv%maxvelocity,minvelocity)
-            
- 
-            ##because
+            velocityrange = maxvelocity-minvelocity
+            sv = (sv%velocityrange)+minvelocity
+                
+
+            ##because information
             print("Byte set " + str(i) + " : sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
 
-            ##send output, send note off if below lowest
+
+            ##send output, send as note off if below lowest (forcelowest)
             if sn < minnote:
-                o.send(mido.Message('note_on', note=sn, velocity=0, time=t))
+                o.send(mido.Message('note_off', note=sn, time=t))
             else:
                 o.send(mido.Message('note_on', note=sn, velocity=sv, time=t))
 
-            ##one note at a time
+            ##one note at a time, sleep between messages
             if mono:
                 time.sleep(t)
-                ##cover not responding to time in above
+                ##cover not responding to time in mido.Message
                 o.send(mido.Message('note_off', note=sn))
 
 ##examples of settings, let the randomness begin
