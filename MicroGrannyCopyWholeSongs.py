@@ -8,20 +8,22 @@ fn2 = string.digits+string.ascii_uppercase
 def convertTrack(fi,fo):
     outData = ""
     print "processing " + fi
+
     outData = outData + fi + " >> "
-    if fi.endswith(".mp3"):
-        song = AudioSegment.from_mp3(fi)
-    else:
-        extension = fi[fi.index('.')+1:]
-        song = AudioSegment.from_file(fi,extension)
+    
+    extension = fi[fi.index('.')+1:]
+    song = AudioSegment.from_file(fi,extension)
         
     oreduced = song.set_channels(1)
     oreduced = oreduced.set_sample_width(2)
     oreduced = oreduced.set_frame_rate(22050)
         
     outData = outData + fo+"\n"
+    
     print fo
+
     oreduced.export(fo,format='wav')
+
     return outData
 
 def listFilesWithExt(path, extension):
@@ -32,17 +34,26 @@ def OutFileName(i):
 
 def Process(path,outputPath,extension):
     o = open(outputPath+"/index.txt",'w')
+    fail = open(path+"/failed.txt",'w')
     index = 0
-    for fi in listFilesWithExt(path,extension):
+    items = listFilesWithExt(path,extension)
+    items.sort()
+    for fi in items:
         fo = OutFileName(index)
-        
-        o.write(convertTrack(fi,outputPath+"/"+fo))
+        try:
+            o.write(convertTrack(fi,outputPath+"/"+fo))
+        except:
+            failText = "!!! " +fi+" failed try running ffmpeg on this file from the command line. !!!\n"
+            print(failText)
+            fail.write(failText)
+            
         index += 1
         if index > (len(fn1)*len(fn2))-1:
             o.close()
+            fail.close()
             return "maxUpper reached"
 
-            
+    fail.close()
     o.close()
-    return
+    return "done"
         
