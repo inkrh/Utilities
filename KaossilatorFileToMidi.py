@@ -2,7 +2,7 @@ import mido
 import time
 
 def Run(fi, minnote=21, maxnote=108, minypad=0, maxypad=127, timingdivisor=127, shortestnoteon=0.00390625, step=3, loop=False):
-
+    ##gigo catching (kinda funny considering the aim is to push gi and get good beats out...)
     if minnote < 0:
         print("Negative minimum note")
         minnote = 0
@@ -16,14 +16,24 @@ def Run(fi, minnote=21, maxnote=108, minypad=0, maxypad=127, timingdivisor=127, 
         hold = maxnote
         maxnote = minnote
         minnote = hold
-
+    print("Loading source data")
+    
     ##open file as a byte array
     with open(fi, "rb") as inFile:
         f = inFile.read()
         b = bytearray(f)
+    
 
     ##send midi
     with mido.open_output() as o:
+        ##check source data and allow for timing
+        ##doing this after open_output() since open_output can take some time
+        if len(b) > 0:
+            burn=not raw_input("Data loaded and output open, press return to start")
+        else:
+            print("Data load failure/zero length file?")
+            return
+        ##could keep this in the same method but the sky is blue.
         if(loop):
             while True:
                 Play(o, b,minnote,maxnote, minypad, maxypad, timingdivisor,shortestnoteon,step)
@@ -36,8 +46,13 @@ def Play(o, b,minnote,maxnote, minypad, maxypad, timingdivisor,shortestnoteon,st
     for i in range(0,len(b)-2, step):
     ##because I wanted to just grab a small subset for a loop
     ##for i in range(23037,23046):
+
+            ##NB I could do this directly from the byte array without translation
+            ##but I could also make everything less buggy and tidier and the project
+            ##is just intended to blow off steam after longs days spent looking at
+            ##software & code full of bugs and untidiness...
         
-            ##note i, ypad i+1, time i+2
+            ##note/xpad i, ypad i+1, time i+2
             sx = (b[i]+minnote)%127
             sy = (b[i+1]+minypad)%127
             
@@ -51,7 +66,7 @@ def Play(o, b,minnote,maxnote, minypad, maxypad, timingdivisor,shortestnoteon,st
                 t = max(shortestnoteon,b[i+2]/timingdivisor)
 
 
-##            ##set min and max ypad
+            ##set min and max ypad
             ypadrange = maxypad-minypad
             sy = (sy%ypadrange)+minypad
             noterange = maxnote-minnote
@@ -75,6 +90,6 @@ def ProcessFile(fi):
 
 def ProcessFileLoop(fi):
     Run(fi,minnote=48,maxnote=60,step=192,timingdivisor=33,loop=True)
-##good settings for Kaossilator Pro Plus non-looped voices
+##ok settings for Kaossilator Pro Plus non-looped voices
 def IndividualProcessFileLoop(fi):
     Run(fi,minnote=0,maxnote=127,step=3,loop=True)
