@@ -80,11 +80,12 @@ def Play(o, b,minnote,maxnote, minvelocity, maxvelocity, timingdivisor,shortestn
 ##examples of settings, let the randomness begin
 ##depends on file input but with image file of ~93kb step of 384 and divisor of 63.75 will be ~8.5 minutes
                 
-##good settings for microbrute
+##good settings for Kaossilator Pro Plus drum loops
 def ProcessFile(fi):
     Run(fi,minnote=48,maxnote=83,step=512)
 
 def ProcessFileLoop(fi):
     Run(fi,minnote=48,maxnote=60,step=192,timingdivisor=33,loop=True)
 
-
+def IndividualProcessFileLoop(fi):
+    Run(fi,minnote=48,maxnote=60,step=192,timingdivisor=127,loop=True)
