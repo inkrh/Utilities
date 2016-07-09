@@ -5,6 +5,7 @@ import mido
 mt = ''
 nvalue = 0
 ##vvalue = 0
+pnvalue = nvalue
 
 def Translate(message,o):
     global mt
@@ -30,15 +31,18 @@ def Translate(message,o):
 ##    if message.control == 13:
 ##        vvalue = max(100,message.value)
 
-    
+
+def ManualPanic(o):
+    for i in range(0,128):
+        o.send(mido.Message('note_off',note=i))
 
     
 def Run():
     global mt
     global nvalue
-##    global vvalue
+    global pnvalue
     
-    with mido.open_output() as o:
+    with mido.open_output(autoreset = True) as o:
         with mido.open_input() as i:
             while True:
                 for message in i:
@@ -47,7 +51,18 @@ def Run():
                         Translate(message,o)
                         
                     if 'note' in mt:
+                        if not pnvalue == nvalue:
                             mo = mido.Message(mt,note = nvalue, velocity = 100)
                             print("out : " + str(mo))
                             o.send(mo)
+                            pnvalue = nvalue
+                        ##microgranny tends not to respond to off or time, or anything it doesn't like
+                        if 'off'in mt:
+                            mt = ''
+                            o.send(mido.Message('note_off',note = pnvalue))
+                            o.send(mido.Message('note_off',note=nvalue))
+                            print("out : note_off")
+                            o.reset()
+                            o.panic()
+                            ManualPanic(o)
                             
