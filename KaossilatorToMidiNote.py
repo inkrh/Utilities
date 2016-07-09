@@ -46,7 +46,7 @@ def Run():
         with mido.open_input() as i:
             while True:
                 for message in i:
-                    if message.type == 'control_change':
+                    if message.type == 'control_change':## and not message.control == 13:
                         print("in : " + str(message))
                         Translate(message,o)
                         
@@ -65,4 +65,6 @@ def Run():
                             o.reset()
                             o.panic()
                             ManualPanic(o)
-                            
+
+if __name__== '__main__':
+    Run()
