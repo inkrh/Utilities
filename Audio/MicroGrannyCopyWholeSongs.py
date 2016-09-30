@@ -27,7 +27,7 @@ def convertTrack(fi,fo):
     return outData
 
 def listFilesWithExt(path, extension):
-    return [os.path.join(path,f) for f in os.listdir(path) if f.endswith('.'+extension)]
+    return [os.path.join(path,f) for f in os.listdir(path) if f.lower().endswith('.'+extension.lower())]
 
 def OutFileName(i):
     return fn1[i/len(fn2)]+fn2[i%len(fn2)]+".wav"

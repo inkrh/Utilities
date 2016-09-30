@@ -34,7 +34,7 @@ def play(o,cap):
 
 def camera(cap):
     ret, frame = cap.read()
-    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    image = cv2.cvtColor(frame, cv2.COLORMAP_AUTUMN)
     ##show camera image
     cv2.imshow("input",image)
     ##average camera image data

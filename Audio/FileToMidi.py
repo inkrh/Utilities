@@ -26,6 +26,7 @@ def Run(fi, minnote=21, maxnote=108, forcelowest=False, minvelocity=64, maxveloc
     with mido.open_output() as o:
         if(loop):
             while True:
+                print("looping")
                 Play(o, b,minnote,maxnote, forcelowest, minvelocity, maxvelocity, timingdivisor,shortestnoteon,step,mono,microgranny,sendCC,sendsamplechange)
                 
         else:
@@ -34,6 +35,7 @@ def Run(fi, minnote=21, maxnote=108, forcelowest=False, minvelocity=64, maxveloc
 
 def Play(o, b,minnote,maxnote,forcelowest, minvelocity, maxvelocity, timingdivisor,shortestnoteon,step,mono,microgranny,sendCC,sendsamplechange):
     for i in range(0,len(b)-2, step):
+        
     ##because I wanted to just grab a small subset for a loop
     ##for i in range(23037,23046):
         
@@ -64,7 +66,7 @@ def Play(o, b,minnote,maxnote,forcelowest, minvelocity, maxvelocity, timingdivis
                             ##because I was annoyed by something
                             ##if sn != 104:
                             o.send(mido.Message('control_change',control=sn,value=sv))
-                            print("Control change to " + str(sn) + " : " +str(sv))
+###                            print("Control change to " + str(sn) + " : " +str(sv))
 
             
 
@@ -85,7 +87,7 @@ def Play(o, b,minnote,maxnote,forcelowest, minvelocity, maxvelocity, timingdivis
                 
 
             ##because information
-            print("Byte set " + str(i) + " : sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
+###            print("Byte set " + str(i) + " : sn " + str(sn) + " : sv " + str(sv) + " : t " + str(t))
 
 
             ##send output, send as note off if below lowest (forcelowest)
@@ -112,7 +114,7 @@ def MicroBruteLoop(fi):
 
 ##microgranny
 def MicroGrannyNoSampleChange(fi):
-    Run(fi,minnote=48,maxnote=83,step=192, sendsamplechange=False)
+    Run(fi,minnote=48,maxnote=83,step=192, sendsamplechange=False, loop=True)
 
 def MicroGrannySampleChange(fi):
     Run(fi,minnote=48,maxnote=83, shortestnoteon=0.375, sendsamplechange=True, minvelocity=100)
