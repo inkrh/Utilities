@@ -10,6 +10,6 @@ def RemoveMacsTempFiles(path):
             ##print("Checking " + f)
             if f.startswith("._"):
                 print("Deleting " + fp)
-                os.system("rm -rf fp")
+                os.system("rm -rf "+ fp)
                 i+=1
     print("Done - removed " + str(i) + " files.")
