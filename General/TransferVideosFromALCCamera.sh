@@ -4,7 +4,7 @@ echo ALC address "$1"
 echo ftp user "$2"
 echo ftp address "$4"
 echo ftp folder "$5"
-spawn telnet $1
+telnet $1
 expect "login:"
 send "root"
 expect "Password:"
