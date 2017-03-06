@@ -17,7 +17,7 @@ except ImportError:
 
 from tornado import httpclient, gen, ioloop, queues
 
-base_url = 'http://www.breitbart.com'
+base_url = 'http://www.inkrh.com'
 concurrency = 10
 emails =[]
 externals = []
