@@ -17,7 +17,7 @@ except ImportError:
 
 from tornado import httpclient, gen, ioloop, queues
 
-base_url = 'http://www.inkrh.com'
+base_url = 'http://inkrh.com'
 concurrency = 10
 emails =[]
 externals = []
@@ -44,6 +44,7 @@ def get_links_from_url(url):
         urls = [urljoin(url, remove_fragment(new_url))
                 for new_url in get_links(html)]
     except Exception as e:
+        print(e)
         if "mailto:" in url:
             if not url in emails:
                 emails = emails+[url]
@@ -132,10 +133,11 @@ def main():
 def addToDB(cur,friendlyname,item,itemtype):
     cur.execute("REPLACE INTO '" + str(friendlyname) + "' VALUES ('" + str(item) + "', '"+str(itemtype)+"')")
 
-def Run(site,friendlyname):
+def Run(site="",friendlyname="site"):
     global base_url
-    base_url = site
-
+    if not site == '':
+        base_url = site
+    
     import logging
     logging.basicConfig()
     io_loop = ioloop.IOLoop.current()
@@ -167,4 +169,6 @@ def Run(site,friendlyname):
     cur.execute("REPLACE INTO 'results' VALUES('"+str(friendlyname)+"','"+str(site)+"',"+str(len(emails))+","+str(len(externals))+","+str(len(internals))+","+str(len(broken))+")")
     con.commit()
     con.close()
+
+Run()
 
