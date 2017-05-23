@@ -15,6 +15,18 @@ import time
 
 
 ##needs simplification and style corrections
+##needs time improvements - first call for a tile taking up to 8 seconds
+##call once cached becomes more realistic 
+
+##time_usage from stack overflow
+def time_usage(func):
+    def wrapper(*args, **kwargs):
+        beg_ts = time.time()
+        retval = func(*args, **kwargs)
+        end_ts = time.time()
+        print("elapsed time: %f" % (end_ts - beg_ts))
+        return retval
+    return wrapper
 
 ##if using https set your key and cert files
 privateKeyPath = 'privkey.pem'
@@ -118,7 +130,10 @@ def ImageMerge(i1, i2, coords=(0,0)):
     i2.paste(t, coords, m)
     return i2
 
+
 ##improve blurring by getting bleed - could be simplified
+##taking up to 6 seconds
+@time_usage
 def checkTileEdges(img, x, y, z):
     o = Image.new('RGBA', (768, 768), (0,0,0,0))
 
