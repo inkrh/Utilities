@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#  LinodeBackup.sh
+#  WordpressBackup.sh
 #  
 #
 #  Created by Robert Henden on 5/27/17.
@@ -15,13 +15,13 @@ tar -czf WPBackup.tar "$0"
 
 
 ##dmup MySQL (insecure)
-mysqldump -u $1 -p$2 $3 > sealevelsWP.sql
+mysqldump -u $1 -p$2 $3 > WP.sql
 
 ##tarball above archives
-tar -czf SeaLevels.tar sealevelsWP.tar sealevelsWP.sql
+tar -czf Backup.tar WPBackup.tar WP.sql
 
 ##clean up
-rm -rf sealevelsWP.tar
-rm -rf sealevelsWP.sql
+rm -rf WPBackup.tar
+rm -rf WP.sql
 
 
