@@ -5,33 +5,6 @@
 	"link": "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events",
 	"events": [
 		{
-			"id": "EONET_3253",
-			"title": "West Fork Fire, MONTANA",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3253",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5585/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "3017-08-30T10:45:00Z",
-					"type": "Point", 
-					"coordinates": [ -115.64888888889, 48.507777777778 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3281",
 			"title": "Hurricane Maria",
             "description": "",
@@ -84,6 +57,26 @@
 					"date": "2017-09-18T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -59.50, 14.60 ]
+				},
+				{
+					"date": "2017-09-18T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -60.10, 14.70 ]
+				},
+				{
+					"date": "2017-09-18T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -61.10, 15.30 ]
+				},
+				{
+					"date": "2017-09-19T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -61.40, 15.50 ]
+				},
+				{
+					"date": "2017-09-19T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -62.30, 16.00 ]
 				}
 			
 			]
@@ -176,6 +169,16 @@
 					"date": "2017-09-18T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -39.80, 14.10 ]
+				},
+				{
+					"date": "2017-09-18T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -40.60, 14.10 ]
+				},
+				{
+					"date": "2017-09-18T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -42.30, 15.00 ]
 				}
 			
 			]
@@ -979,6 +982,26 @@
 					"date": "2017-09-18T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -71.40, 33.00 ]
+				},
+				{
+					"date": "2017-09-18T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.10, 33.90 ]
+				},
+				{
+					"date": "2017-09-18T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.10, 34.80 ]
+				},
+				{
+					"date": "2017-09-19T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.30, 35.20 ]
+				},
+				{
+					"date": "2017-09-19T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.30, 36.00 ]
 				}
 			
 			]
@@ -1351,6 +1374,33 @@
 			]
 		},
 		{
+			"id": "EONET_3253",
+			"title": "West Fork Fire, MONTANA",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3253",
+			"categories": [
+				{
+					"id": 8,
+					"title": "Wildfires"
+				}
+			],
+			"sources": [
+				{
+					"id": "InciWeb",
+					"url": "https://inciweb.nwcg.gov/incident/5585/"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-08-30T10:45:00Z",
+					"type": "Point", 
+					"coordinates": [ -115.64888888889, 48.507777777778 ]
+				}
+			
+			]
+		},
+		{
 			"id": "EONET_3238",
 			"title": "Uno Peak Fire, WASHINGTON",
             "description": "",
@@ -1481,33 +1531,6 @@
 					"date": "2017-08-30T00:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -114.9392667, 49.21955 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3212",
-			"title": "Tohakum 2 Fire, NEVADA",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3212",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5566/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-29T19:30:00Z",
-					"type": "Point", 
-					"coordinates": [ -119.46361111111, 40.272777777778 ]
 				}
 			
 			]
@@ -1675,33 +1698,6 @@
 			]
 		},
 		{
-			"id": "EONET_3225",
-			"title": "Tungsten Fire, NEVADA",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3225",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5550/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-27T17:30:00Z",
-					"type": "Point", 
-					"coordinates": [ -117.70972222222, 39.7525 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3228",
 			"title": "East Fork Fire, MONTANA",
             "description": "",
@@ -1832,33 +1828,6 @@
 					"date": "2017-08-25T12:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -113.015, 48.089166666667 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3197",
-			"title": "Conrow Fire, MONTANA",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3197",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5541/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-24T22:30:00Z",
-					"type": "Point", 
-					"coordinates": [ -111.98888888889, 45.933611111111 ]
 				}
 			
 			]
@@ -4490,60 +4459,6 @@
 					"date": "2017-07-10T16:15:00Z",
 					"type": "Point", 
 					"coordinates": [ -114.50888888889, 46.381111111111 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3098",
-			"title": "C10970 - Kluskoil Lake 1 - Quesnel West Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3098",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=664"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-07-10T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -124.03775, 53.2276333 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3119",
-			"title": "Hanceville-Riske Creek-C50647-Chilcotin Fire Zone, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3119",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=666"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-07-08T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -123.1686333, 51.944 ]
 				}
 			
 			]
