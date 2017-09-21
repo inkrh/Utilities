@@ -66,7 +66,7 @@
 				{
 					"date": "2017-09-18T18:00:00Z",
 					"type": "Point", 
-					"coordinates": [ -61.10, 15.30 ]
+					"coordinates": [ -60.70, 15.10 ]
 				},
 				{
 					"date": "2017-09-19T00:00:00Z",
@@ -77,6 +77,26 @@
 					"date": "2017-09-19T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -62.30, 16.00 ]
+				},
+				{
+					"date": "2017-09-19T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -63.10, 16.30 ]
+				},
+				{
+					"date": "2017-09-19T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -64.00, 16.80 ]
+				},
+				{
+					"date": "2017-09-20T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -64.70, 17.30 ]
+				},
+				{
+					"date": "2017-09-20T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -65.60, 17.90 ]
 				}
 			
 			]
@@ -184,6 +204,33 @@
 			]
 		},
 		{
+			"id": "EONET_3283",
+			"title": "Buck Fire (CA), CALIFORNIA",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3283",
+			"categories": [
+				{
+					"id": 8,
+					"title": "Wildfires"
+				}
+			],
+			"sources": [
+				{
+					"id": "InciWeb",
+					"url": "https://inciweb.nwcg.gov/incident/5614/"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-12T18:45:00Z",
+					"type": "Point", 
+					"coordinates": [ -123.03555555556, 40.2275 ]
+				}
+			
+			]
+		},
+		{
 			"id": "EONET_3274",
 			"title": "Cottonwood Fire, NEVADA",
             "description": "",
@@ -206,93 +253,6 @@
 					"date": "2017-09-12T18:30:00Z",
 					"type": "Point", 
 					"coordinates": [ -116.42361111111, 40.258333333333 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3268",
-			"title": "Typhoon Doksuri",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3268",
-			"categories": [
-				{
-					"id": 10,
-					"title": "Severe Storms"
-				}
-			],
-			"sources": [
-				{
-					"id": "UNISYS",
-					"url": "http://weather.unisys.com/hurricane/w_pacific/2017/DOKSURI/track.dat"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-09-11T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 122.80, 14.80 ]
-				},
-				{
-					"date": "2017-09-12T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 121.90, 14.60 ]
-				},
-				{
-					"date": "2017-09-12T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 118.20, 14.50 ]
-				},
-				{
-					"date": "2017-09-13T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 116.60, 14.60 ]
-				},
-				{
-					"date": "2017-09-13T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 115.90, 15.20 ]
-				},
-				{
-					"date": "2017-09-13T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 114.50, 15.60 ]
-				},
-				{
-					"date": "2017-09-13T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 113.40, 15.80 ]
-				},
-				{
-					"date": "2017-09-14T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 112.20, 16.20 ]
-				},
-				{
-					"date": "2017-09-14T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 111.20, 16.50 ]
-				},
-				{
-					"date": "2017-09-14T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 109.90, 17.10 ]
-				},
-				{
-					"date": "2017-09-14T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 108.80, 17.60 ]
-				},
-				{
-					"date": "2017-09-15T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 107.30, 17.80 ]
-				},
-				{
-					"date": "2017-09-15T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 106.00, 17.90 ]
 				}
 			
 			]
@@ -1002,6 +962,26 @@
 					"date": "2017-09-19T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -71.30, 36.00 ]
+				},
+				{
+					"date": "2017-09-19T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.70, 36.50 ]
+				},
+				{
+					"date": "2017-09-19T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -71.30, 37.20 ]
+				},
+				{
+					"date": "2017-09-20T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -70.80, 37.90 ]
+				},
+				{
+					"date": "2017-09-20T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -70.30, 38.40 ]
 				}
 			
 			]
