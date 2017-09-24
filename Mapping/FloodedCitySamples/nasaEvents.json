@@ -5,6 +5,130 @@
 	"link": "https://eonet.sci.gsfc.nasa.gov/api/v2.1/events",
 	"events": [
 		{
+			"id": "EONET_3291",
+			"title": "Wildfires - Canary Islands",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3291",
+			"categories": [
+				{
+					"id": 8,
+					"title": "Wildfires"
+				}
+			],
+			"sources": [
+				{
+					"id": "PDC",
+					"url": "http://emops.pdc.org/emops/?hazard_id=74190"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-22T18:02:00Z",
+					"type": "Point", 
+					"coordinates": [ -15.55016, 28.05294 ]
+				}
+			
+			]
+		},
+		{
+			"id": "EONET_3286",
+			"title": "Agung Volcano, Indonesia",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3286",
+			"categories": [
+				{
+					"id": 12,
+					"title": "Volcanoes"
+				}
+			],
+			"sources": [
+				{
+					"id": "SIVolcano",
+					"url": "http://volcano.si.edu/volcano.cfm?vn=264020"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-19T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ 115.508, -8.342 ]
+				}
+			
+			]
+		},
+		{
+			"id": "EONET_3287",
+			"title": "Puebla, Mexico M 7.1 Earthquake",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3287",
+			"categories": [
+				{
+					"id": 16,
+					"title": "Earthquakes"
+				}
+			],
+			"sources": [
+				{
+					"id": "CEMS",
+					"url": "http://emergency.copernicus.eu/mapping/list-of-components/EMSR244"
+				},
+				{
+					"id": "GDACS",
+					"url": "http://www.gdacs.org/report.aspx?eventtype=EQ&amp;eventid=1121855"
+				},
+				{
+					"id": "IDC",
+					"url": "https://disasterscharter.org/web/guest/-/earthquake-in-mexico-activation-553-"
+				},
+				{
+					"id": "NASA_DISP",
+					"url": "https://disasters.nasa.gov/mexico-city-earthquake-2017"
+				},
+				{
+					"id": "ReliefWeb",
+					"url": "https://reliefweb.int/disaster/eq-2017-000138-mex"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-19T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -98.399, 18.584 ]
+				}
+			
+			]
+		},
+		{
+			"id": "EONET_3285",
+			"title": "Zhupanovsky Volcano, Russia",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3285",
+			"categories": [
+				{
+					"id": 12,
+					"title": "Volcanoes"
+				}
+			],
+			"sources": [
+				{
+					"id": "SIVolcano",
+					"url": "http://volcano.si.edu/volcano.cfm?vn=300120"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-17T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ 159.15, 53.589 ]
+				}
+			
+			]
+		},
+		{
 			"id": "EONET_3281",
 			"title": "Hurricane Maria",
             "description": "",
@@ -16,6 +140,30 @@
 				}
 			],
 			"sources": [
+				{
+					"id": "CEMS",
+					"url": "http://emergency.copernicus.eu/mapping/list-of-components/EMSR243"
+				},
+				{
+					"id": "EO",
+					"url": "https://earthobservatory.nasa.gov/NaturalHazards/event.php?id=91003"
+				},
+				{
+					"id": "GDACS",
+					"url": "http://www.gdacs.org/report.aspx?eventtype=TC&amp;eventid=1000404"
+				},
+				{
+					"id": "IDC",
+					"url": "https://disasterscharter.org/web/guest/-/cyclone-in-dominica-activation-552-"
+				},
+				{
+					"id": "NASA_DISP",
+					"url": "https://disasters.nasa.gov/hurricane-maria-2017"
+				},
+				{
+					"id": "ReliefWeb",
+					"url": "https://reliefweb.int/disaster/tc-2017-000136-atg"
+				},
 				{
 					"id": "UNISYS",
 					"url": "http://weather.unisys.com/hurricane/atlantic/2017/MARIA/track.dat"
@@ -66,7 +214,7 @@
 				{
 					"date": "2017-09-18T18:00:00Z",
 					"type": "Point", 
-					"coordinates": [ -60.70, 15.10 ]
+					"coordinates": [ -61.10, 15.30 ]
 				},
 				{
 					"date": "2017-09-19T00:00:00Z",
@@ -97,13 +245,73 @@
 					"date": "2017-09-20T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -65.60, 17.90 ]
+				},
+				{
+					"date": "2017-09-20T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -66.50, 18.40 ]
+				},
+				{
+					"date": "2017-09-20T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -67.30, 18.80 ]
+				},
+				{
+					"date": "2017-09-21T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -67.90, 19.20 ]
+				},
+				{
+					"date": "2017-09-21T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -68.40, 19.60 ]
+				},
+				{
+					"date": "2017-09-21T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -69.10, 20.20 ]
+				},
+				{
+					"date": "2017-09-21T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -69.80, 20.80 ]
+				},
+				{
+					"date": "2017-09-22T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -70.20, 21.00 ]
+				},
+				{
+					"date": "2017-09-22T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -70.60, 21.60 ]
+				},
+				{
+					"date": "2017-09-23T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -72.30, 25.40 ]
+				},
+				{
+					"date": "2017-09-23T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -72.50, 26.30 ]
+				},
+				{
+					"date": "2017-09-24T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -72.50, 27.00 ]
+				},
+				{
+					"date": "2017-09-24T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -72.70, 27.90 ]
 				}
 			
 			]
 		},
 		{
 			"id": "EONET_3282",
-			"title": "Tropical Storm Lee",
+			"title": "Hurricane Lee",
             "description": "",
 			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3282",
 			"categories": [
@@ -199,6 +407,163 @@
 					"date": "2017-09-18T18:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -42.30, 15.00 ]
+				},
+				{
+					"date": "2017-09-23T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -49.40, 31.90 ]
+				},
+				{
+					"date": "2017-09-23T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -49.80, 32.10 ]
+				},
+				{
+					"date": "2017-09-24T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -50.10, 31.90 ]
+				},
+				{
+					"date": "2017-09-24T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -50.10, 31.80 ]
+				}
+			
+			]
+		},
+		{
+			"id": "EONET_3289",
+			"title": "Hurricane Norma",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3289",
+			"categories": [
+				{
+					"id": 10,
+					"title": "Severe Storms"
+				}
+			],
+			"sources": [
+				{
+					"id": "UNISYS",
+					"url": "http://weather.unisys.com/hurricane/e_pacific/2017/NORMA/track.dat"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-14T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -109.50, 17.20 ]
+				},
+				{
+					"date": "2017-09-14T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -109.30, 17.70 ]
+				},
+				{
+					"date": "2017-09-15T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -109.30, 18.30 ]
+				},
+				{
+					"date": "2017-09-15T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -109.70, 18.60 ]
+				},
+				{
+					"date": "2017-09-15T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -109.70, 18.70 ]
+				},
+				{
+					"date": "2017-09-15T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.10, 18.90 ]
+				},
+				{
+					"date": "2017-09-16T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.20, 19.00 ]
+				},
+				{
+					"date": "2017-09-16T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.20, 19.00 ]
+				},
+				{
+					"date": "2017-09-16T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.10, 19.30 ]
+				},
+				{
+					"date": "2017-09-16T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.20, 19.70 ]
+				},
+				{
+					"date": "2017-09-17T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.10, 20.20 ]
+				},
+				{
+					"date": "2017-09-17T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.40, 20.50 ]
+				},
+				{
+					"date": "2017-09-17T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -110.50, 20.90 ]
+				},
+				{
+					"date": "2017-09-17T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.10, 21.10 ]
+				},
+				{
+					"date": "2017-09-18T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.40, 21.40 ]
+				},
+				{
+					"date": "2017-09-18T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.80, 21.40 ]
+				},
+				{
+					"date": "2017-09-18T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.10, 21.40 ]
+				},
+				{
+					"date": "2017-09-18T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.80, 21.40 ]
+				},
+				{
+					"date": "2017-09-19T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.70, 21.70 ]
+				},
+				{
+					"date": "2017-09-19T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.90, 21.60 ]
+				},
+				{
+					"date": "2017-09-19T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.50, 21.60 ]
+				},
+				{
+					"date": "2017-09-19T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.00, 21.90 ]
+				},
+				{
+					"date": "2017-09-20T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -111.60, 22.10 ]
 				}
 			
 			]
@@ -285,33 +650,6 @@
 			]
 		},
 		{
-			"id": "EONET_3273",
-			"title": "Blacktail Fire, MONTANA",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3273",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5606/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-09-10T14:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -110.32444444444, 46.229722222222 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3265",
 			"title": "Pine Tree Fire, COLORADO",
             "description": "",
@@ -334,6 +672,33 @@
 					"date": "2017-09-09T15:59:00Z",
 					"type": "Point", 
 					"coordinates": [ -108.11722222222, 40.344166666667 ]
+				}
+			
+			]
+		},
+		{
+			"id": "EONET_3284",
+			"title": "Desolation Fire, OREGON",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3284",
+			"categories": [
+				{
+					"id": 8,
+					"title": "Wildfires"
+				}
+			],
+			"sources": [
+				{
+					"id": "InciWeb",
+					"url": "https://inciweb.nwcg.gov/incident/5610/"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-09-09T11:45:00Z",
+					"type": "Point", 
+					"coordinates": [ -120.4975, 44.479444444444 ]
 				}
 			
 			]
@@ -388,256 +753,6 @@
 					"date": "2017-09-09T00:00:00Z",
 					"type": "Polygon", 
 					"coordinates": [[ [10.29876708984375, 43.35648863083366], [10.29876708984375, 43.63582198182203], [10.5206298828125, 43.63582198182203], [10.5206298828125, 43.35648863083366], [10.29876708984375, 43.35648863083366] ]]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3263",
-			"title": "Typhoon Talim",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3263",
-			"categories": [
-				{
-					"id": 10,
-					"title": "Severe Storms"
-				}
-			],
-			"sources": [
-				{
-					"id": "EO",
-					"url": "https://earthobservatory.nasa.gov/NaturalHazards/view.php?id=90983"
-				},
-				{
-					"id": "GDACS",
-					"url": "http://www.gdacs.org/report.aspx?eventtype=TC&amp;eventid=1000398"
-				},
-				{
-					"id": "UNISYS",
-					"url": "http://weather.unisys.com/hurricane/w_pacific/2017/TALIM/track.dat"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-09-08T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 146.90, 13.40 ]
-				},
-				{
-					"date": "2017-09-09T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 145.30, 14.80 ]
-				},
-				{
-					"date": "2017-09-09T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 143.50, 14.90 ]
-				},
-				{
-					"date": "2017-09-10T01:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 142.70, 15.20 ]
-				},
-				{
-					"date": "2017-09-10T07:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 141.30, 15.70 ]
-				},
-				{
-					"date": "2017-09-10T14:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 140.20, 16.10 ]
-				},
-				{
-					"date": "2017-09-10T20:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 139.10, 16.20 ]
-				},
-				{
-					"date": "2017-09-11T01:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 138.10, 16.80 ]
-				},
-				{
-					"date": "2017-09-11T07:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 137.20, 17.40 ]
-				},
-				{
-					"date": "2017-09-11T14:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 136.10, 18.10 ]
-				},
-				{
-					"date": "2017-09-11T20:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 134.70, 18.90 ]
-				},
-				{
-					"date": "2017-09-12T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 130.60, 21.50 ]
-				},
-				{
-					"date": "2017-09-12T02:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 133.70, 19.30 ]
-				},
-				{
-					"date": "2017-09-12T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 128.70, 22.30 ]
-				},
-				{
-					"date": "2017-09-12T08:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 131.60, 20.60 ]
-				},
-				{
-					"date": "2017-09-12T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 127.70, 22.90 ]
-				},
-				{
-					"date": "2017-09-13T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 126.30, 24.40 ]
-				},
-				{
-					"date": "2017-09-13T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.70, 25.00 ]
-				},
-				{
-					"date": "2017-09-13T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.30, 25.50 ]
-				},
-				{
-					"date": "2017-09-13T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.90, 26.00 ]
-				},
-				{
-					"date": "2017-09-14T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.60, 26.60 ]
-				},
-				{
-					"date": "2017-09-14T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.30, 27.10 ]
-				},
-				{
-					"date": "2017-09-14T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.40, 27.20 ]
-				},
-				{
-					"date": "2017-09-14T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.40, 27.70 ]
-				},
-				{
-					"date": "2017-09-15T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 124.50, 27.80 ]
-				},
-				{
-					"date": "2017-09-15T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.10, 28.00 ]
-				},
-				{
-					"date": "2017-09-15T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.50, 28.30 ]
-				},
-				{
-					"date": "2017-09-15T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.20, 28.40 ]
-				},
-				{
-					"date": "2017-09-16T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 125.90, 28.50 ]
-				},
-				{
-					"date": "2017-09-16T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 126.70, 28.90 ]
-				},
-				{
-					"date": "2017-09-16T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 127.70, 29.40 ]
-				},
-				{
-					"date": "2017-09-16T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 128.50, 30.20 ]
-				},
-				{
-					"date": "2017-09-17T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 129.70, 31.10 ]
-				},
-				{
-					"date": "2017-09-17T06:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 132.00, 32.40 ]
-				},
-				{
-					"date": "2017-09-17T12:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 134.40, 34.10 ]
-				},
-				{
-					"date": "2017-09-17T18:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 138.20, 37.60 ]
-				},
-				{
-					"date": "2017-09-18T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ 141.00, 41.70 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3276",
-			"title": "Pijijiapan, Mexico M 8.1 Earthquake",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3276",
-			"categories": [
-				{
-					"id": 16,
-					"title": "Earthquakes"
-				}
-			],
-			"sources": [
-				{
-					"id": "CEMS",
-					"url": "http://emergency.copernicus.eu/mapping/list-of-components/EMSR240"
-				},
-				{
-					"id": "NASA_DISP",
-					"url": "https://disasters.nasa.gov/mexico-earthquake-2017"
-				},
-				{
-					"id": "ReliefWeb",
-					"url": "https://reliefweb.int/disaster/eq-2017-000128-mex"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-09-08T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -93.715, 15.068 ]
 				}
 			
 			]
@@ -982,6 +1097,31 @@
 					"date": "2017-09-20T06:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -70.30, 38.40 ]
+				},
+				{
+					"date": "2017-09-20T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -70.00, 39.00 ]
+				},
+				{
+					"date": "2017-09-21T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -68.20, 39.50 ]
+				},
+				{
+					"date": "2017-09-21T06:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -67.80, 39.80 ]
+				},
+				{
+					"date": "2017-09-21T12:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -68.20, 39.60 ]
+				},
+				{
+					"date": "2017-09-21T18:00:00Z",
+					"type": "Point", 
+					"coordinates": [ -67.90, 39.60 ]
 				}
 			
 			]
@@ -1068,10 +1208,10 @@
 			]
 		},
 		{
-			"id": "EONET_3249",
-			"title": "Mission Fire, CALIFORNIA",
+			"id": "EONET_3292",
+			"title": "Creek Fire, CALIFORNIA",
             "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3249",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3292",
 			"categories": [
 				{
 					"id": 8,
@@ -1080,20 +1220,16 @@
 			],
 			"sources": [
 				{
-					"id": "CALFIRE",
-					"url": "http://www.fire.ca.gov/current_incidents/incidentdetails/Index/1809"
-				},
-				{
 					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5588/"
+					"url": "https://inciweb.nwcg.gov/incident/5596/"
 				}
 			
 			],
 			"geometries": [
 				{
-					"date": "2017-09-03T13:00:00Z",
+					"date": "2017-09-03T19:22:00Z",
 					"type": "Point", 
-					"coordinates": [ -119.48277777778, 37.212777777778 ]
+					"coordinates": [ -119.94111111111, 38.12 ]
 				}
 			
 			]
@@ -1210,33 +1346,6 @@
 					"date": "2017-09-02T13:46:00Z",
 					"type": "Point", 
 					"coordinates": [ -114.72972222222, 48.954166666667 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3233",
-			"title": "Finlay Creek Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3233",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=675"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-09-02T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -119.8262329, 49.7333832 ]
 				}
 			
 			]
@@ -1867,6 +1976,33 @@
 			]
 		},
 		{
+			"id": "EONET_3288",
+			"title": "Kouango, Ouaka, Central African Republic Flooding",
+            "description": "",
+			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3288",
+			"categories": [
+				{
+					"id": 9,
+					"title": "Floods"
+				}
+			],
+			"sources": [
+				{
+					"id": "ReliefWeb",
+					"url": "https://reliefweb.int/disaster/fl-2017-000134-caf"
+				}
+			
+			],
+			"geometries": [
+				{
+					"date": "2017-08-23T00:00:00Z",
+					"type": "Point", 
+					"coordinates": [ 19.97314453125, 4.9924497884904175 ]
+				}
+			
+			]
+		},
+		{
 			"id": "EONET_3259",
 			"title": "Linklater Creek Fire, British Columbia, Canada",
             "description": "",
@@ -2353,33 +2489,6 @@
 			]
 		},
 		{
-			"id": "EONET_3193",
-			"title": "Wildfire MB-NE229, Manitoba, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3193",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "MBFIRE",
-					"url": "http://www.gov.mb.ca/sd/fire/Fire-Statistic/2017/MBFIRE17.txt"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-12T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -99.6897, 57.5669 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3248",
 			"title": "Adair Peak Fire, MONTANA",
             "description": "",
@@ -2780,33 +2889,6 @@
 					"date": "2017-08-09T21:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -122.35638888889, 43.400833333333 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3136",
-			"title": "McCormick Creek Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3136",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=663"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-09T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -117.3498, 49.0267333 ]
 				}
 			
 			]
@@ -3297,33 +3379,6 @@
 					"date": "2017-08-02T17:00:00Z",
 					"type": "Point", 
 					"coordinates": [ -115.10805555556, 45.978055555556 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_3084",
-			"title": "Tappan Fire, IDAHO",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3084",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "InciWeb",
-					"url": "https://inciweb.nwcg.gov/incident/5458/"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-08-01T19:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -114.72861111111, 44.883055555556 ]
 				}
 			
 			]
@@ -4116,33 +4171,6 @@
 			]
 		},
 		{
-			"id": "EONET_3009",
-			"title": "Verdant Creek /      Parks Canada Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3009",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=650"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-07-15T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -115.82975, 50.9892833 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3067",
 			"title": "Lone Pine Fire, IDAHO",
             "description": "",
@@ -4305,33 +4333,6 @@
 			]
 		},
 		{
-			"id": "EONET_3168",
-			"title": "Galena Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_3168",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=661"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-07-13T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -117.79145, 50.6368667 ]
-				}
-			
-			]
-		},
-		{
 			"id": "EONET_3028",
 			"title": "Chetco Bar Fire, OREGON",
             "description": "",
@@ -4439,33 +4440,6 @@
 					"date": "2017-07-10T16:15:00Z",
 					"type": "Point", 
 					"coordinates": [ -114.50888888889, 46.381111111111 ]
-				}
-			
-			]
-		},
-		{
-			"id": "EONET_2954",
-			"title": "Kleena Kleene Complex Fire, British Columbia, Canada",
-            "description": "",
-			"link": "http://eonet.sci.gsfc.nasa.gov/api/v2.1/events/EONET_2954",
-			"categories": [
-				{
-					"id": 8,
-					"title": "Wildfires"
-				}
-			],
-			"sources": [
-				{
-					"id": "BCWILDFIRE",
-					"url": "http://bcfireinfo.for.gov.bc.ca/hprScripts/WildfireNews/OneFire.asp?ID=640"
-				}
-			
-			],
-			"geometries": [
-				{
-					"date": "2017-07-07T00:00:00Z",
-					"type": "Point", 
-					"coordinates": [ -125.0159833, 51.9608333 ]
 				}
 			
 			]

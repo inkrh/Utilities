@@ -1,0 +1,2 @@
+curl ipinfo.io
+
