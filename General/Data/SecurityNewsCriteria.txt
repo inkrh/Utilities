@@ -1,0 +1,38 @@
+SecurityNews.db contains searches from 2018 to 2024 for references to:
+
+KeyPhrases= ["security","trojan", "password","security", "vulnerability",
+             "android", "ios","protocol", " http ", "virus", "malware", "adware","risk","windows","apple","google","fraud", "banking",
+             " hack"]
+
+RequiredWords = ["mobile", " app"]
+
+ExcludedWords =  ['clickbait']
+
+
+
+On the following feeds:
+
+FeedList = {
+    "BBC News":"http://feeds.bbci.co.uk/news/technology/rss.xml",
+    "Wired Security":"https://www.wired.com/feed/category/security/latest/rss",
+    "Wired Business":"https://www.wired.com/feed/category/business/latest/rss",
+    "CNN Technology":"http://rss.cnn.com/rss/cnn_tech.rss",
+    "Google":"http://news.google.com/news?output=rss",
+    "Guardian":"https://www.theguardian.com/us/technology/rss",
+    "EFF":"https://www.eff.org/rss/updates.xml",
+    "Threat Post":"https://threatpost.com/feed/",
+    "Dark Reading":"https://www.darkreading.com/rss_simple.asp",
+    "Security Week":"http://feeds.feedburner.com/securityweek",
+    "Computer World":"https://www.computerworld.com/index.rss",
+    "US-CERT":"https://www.us-cert.gov/ncas/current-activity.xml",
+    "Bleeping Computer":"https://www.bleepingcomputer.com/feed/",
+    "Naked Security":"https://nakedsecurity.sophos.com/feed/",
+    "CVE Details":"https://www.cvedetails.com/vulnerability-feed.php?vendor_id=0&product_id=0&version_id=0&orderby=2&cvssscoremin=0",
+    "News 24":"http://feeds.news24.com/articles/fin24/tech/rss",
+    "Reuters Company":"http://feeds.reuters.com/reuters/companyNews",
+    "Reuters Tech":"http://feeds.reuters.com/reuters/technologyNews",
+    "TechCrunch":"http://feeds.feedburner.com/TechCrunch/",
+    "TechMeme":"https://www.techmeme.com/search/query?q=rss",
+    "ARS Technica":"http://feeds.arstechnica.com/arstechnica/index",
+    "The Verge":"https://www.theverge.com/rss/index.xml"
+    }

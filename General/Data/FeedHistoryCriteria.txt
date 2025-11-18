@@ -1,0 +1,28 @@
+FeedHistory.db contains searches from 2017 to 2024 for references to:
+
+KeyPhrases= ["climate change","global warming", "environment","climatechange",
+             "sea level", "energy","temperature","climate", "species", "smog",
+             "pollution","flood","extinct","oil pipe", "extinct", "air quality"]
+
+
+ExcludedWords = ['clickbait','how can', 'are you', 'asylum seeker', 'what I wore this week','quits crisps','northern ireland assembly','fashion']
+
+
+On the following feeds:
+
+FeedList = {
+    "BBC News":"http://feeds.bbci.co.uk/news/rss.xml",
+    "BBC Environment":"http://feeds.bbci.co.uk/news/science_and_environment/rss.xml",
+    "BBC World News":"http://feeds.bbci.co.uk/news/world/rss.xml",
+    "Google":"http://news.google.com/news?output=rss",
+    "BBC UK News":"http://feeds.bbci.co.uk/news/uk/rss.xml",
+    "BBC US News":"http://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+    "BBC Middle East News":"http://feeds.bbci.co.uk/news/world/middle_east/rss.xml",
+    "CNN Top Stories":"http://rss.cnn.com/rss/cnn_topstories.rss",
+    "CNN World News":"http://rss.cnn.com/rss/cnn_world.rss",
+    "CNN US News":"http://rss.cnn.com/rss/cnn_us.rss",
+    "News24":"http://feeds.news24.com/articles/News24/Technology/rss",
+    "WWF":"http://feeds.feedburner.com/WWFStories?format=xml",
+    "WWF In News":"http://feeds.feedburner.com/WWF-InTheNews?format=xml",
+    "Guardian":"http://www.theguardian.com/rss"
+    }
