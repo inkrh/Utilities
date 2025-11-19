@@ -1,0 +1,322 @@
+---
+format_version: '13'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: other
+workflows:
+  build_and_deploy_unity_android:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8: {}
+    - script@1:
+        title: Check Unity Version of Project
+        inputs:
+        - content: grep "m_EditorVersion:" "$(find . -name ProjectVersion.txt -print
+            -quit)" | cut -d\  -f2
+    - apt-get-install@0:
+        inputs:
+        - packages: libgconf-2-4 libgtk-3-0 libarchive-dev strace
+    - script@1:
+        title: Download Unity and platform support packages Ubuntu
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+
+            #workaround for .NET issue https://github.com/dotnet/runtime/issues/64103
+            export COMPlus_ReadyToRun=0
+            envman add --key COMPlus_ReadyToRun --value 0
+
+            echo "Unity version must match solution - check https://unity.com/releases/editor/archive"
+            echo "Running Android build on Ubuntu stack"
+
+            if [[ -z "$UNITY_MAIN_PACKAGE_URL_LINUX" ]]; then
+                echo "UNITY_MAIN_PACKAGE_URL_LINUX was not set"
+                exit 1
+            fi
+
+            if [[ -z "$UNITY_ANDROID_PLATFORM_URL" ]]; then
+                echo "UNITY_ANDROID_PLATFORM_URL was not set"
+                exit 1
+            fi
+
+            echo "Downloading $UNITY_MAIN_PACKAGE_URL_LINUX"
+            curl -o ./UnitySetup $UNITY_MAIN_PACKAGE_URL_LINUX
+            sudo chmod +x UnitySetup
+
+
+            sudo mkdir /bin/Unity
+
+            (yes || true) | ./UnitySetup --unattended --install-location=/bin/Unity --components=Unity,Android,Linux-IL2CPP
+
+
+    - script@1:
+        title: Activate Unity license Ubuntu
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            #activate Unity license from pool
+
+            /bin/Unity/Editor/Unity -quit -batchmode -serial $UNITY_SERIAL -username "$UNITY_EMAIL" -password "$UNITY_PW" -nographics -logfile "$BITRISE_DEPLOY_DIR/UnityActivateLicense.log"
+
+            # or run a script from your repository, like:
+            # bash ./path/to/script.sh
+            # not just bash, e.g.:
+            # ruby ./path/to/script.rb
+    - script@1:
+        title: Install Android SDK elements required by Unity
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            #try installing older cmdline-tools which should be compatible with java 11
+            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "cmdline-tools;10.0"
+            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "build-tools;33.0.3"
+            #install Android NDK r23b https://docs.unity3d.com/Manual/android-sdksetup.html
+            $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "ndk;23.1.7779620"
+
+            #force Bitrise to use the right cmdline-tools version for Unity in a hacky way
+            #sdkmanager uninstall not fully removing so replacing manually
+            rm -rf "$ANDROID_HOME/cmdline-tools/latest"
+            cp -r "$ANDROID_HOME/cmdline-tools/10.0" "$ANDROID_HOME/cmdline-tools/latest"
+    - set-java-version@1: {}
+    - script@1:
+        title: Run Unity Build for Android
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            #at this point we should be hitting JDK 11, and cmdline-tools 10.
+
+            # Build for Android (AAB)
+            echo "Running Unity Android build"
+            /bin/Unity/Editor/Unity -nographics -quit -batchmode -logFile "$BITRISE_DEPLOY_DIR/UnityAndroidBuild.log" -projectPath "$BITRISE_SOURCE_DIR" -executeMethod BuildScript.BuildAndroid -buildOutput "$BITRISE_SOURCE_DIR/androidbuild" -androidSdkPath "$ANDROID_HOME" -androidJdkPath "$JAVA_HOME" -androidNdkPath "$ANDROID_HOME/ndk/23.1.7779620" -buildPlatform android
+
+            #this will fail if Unity fails, good as otherwise Unity will fail silently with a success
+            echo "Make zip of build in artifacts as $BITRISE_DEPLOY_DIR/UnityAndroidProject.zip"
+            zip -r "$BITRISE_DEPLOY_DIR/UnityAndroidProject.zip" "$BITRISE_SOURCE_DIR/androidbuild"
+
+            export PROJECT_PATH="$BITRISE_SOURCE_DIR/androidbuild"
+
+            echo "Setting PROJECT_PATH to androidbuild at $BITRISE_SOURCE_DIR/androidbuild"
+            envman add --key PROJECT_PATH --value $PROJECT_PATH
+
+    - script@1:
+        title: Deactivate Unity license Ubuntu
+        inputs:
+        - content: |-
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            # Deactivate Unity license
+            /bin/Unity/Editor/Unity -quit -batchmode -logfile "$BITRISE_DEPLOY_DIR/UnityDeactivateLicense.log" -nographics -returnlicense -username "$UNITY_EMAIL" -password "$UNITY_PW" -returnlicense
+        is_always_run: true
+    - deploy-to-bitrise-io@2: {}
+    meta:
+      bitrise.io:
+        license_pool_id: 7d06c7af-09bc-46a6-bcc5-ae52a3d4ffcb
+        stack: linux-docker-android-22.04
+        machine_type_id: elite
+  build_and_deploy_unity_ios:
+    steps:
+    - activate-ssh-key@4:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone@8: {}
+    - certificate-and-profile-installer@1:
+        inputs:
+        - install_defaults: 'no'
+    - script@1:
+        title: Check Unity Version of Project
+        inputs:
+        - content: grep "m_EditorVersion:" "$(find . -name ProjectVersion.txt -print
+            -quit)" | cut -d\  -f2
+    - script@1:
+        title: Download Unity and platform support packages MacOS
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+
+            #workaround for .NET issue https://github.com/dotnet/runtime/issues/64103
+            export COMPlus_ReadyToRun=0
+            envman add --key COMPlus_ReadyToRun --value 0
+
+            echo "Unity version must match solution - check https://unity.com/releases/editor/archive"
+            echo "ARM64 (and therefore Bitrise) is only supported for solutions built on Unity 2021.2.0f1+"
+
+            if [[ -z "$UNITY_MAIN_PACKAGE_URL" ]]; then
+                echo "UNITY_MAIN_PACKAGE_URL was not set"
+                exit 1
+            fi
+
+            if [[ -z "$UNITY_IOS_PLATFORM_URL" ]]; then
+                echo "UNITY_IOS_PLATFORM_URL was not set"
+                exit 1
+            fi
+
+            #download unity pkg for Apple Silicon
+            #download.unity3d.com/download_unity/*GUID*/MacEditorInstallerArm64/Unity.pkg
+            echo "Downloading $UNITY_MAIN_PACKAGE_URL"
+            curl -o ./unity.pkg $UNITY_MAIN_PACKAGE_URL
+
+
+            #download iOS support platform
+            ##download.unity3d.com/download_unity/*GUID*/MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-*UNITYVERSION*.pkg
+            echo "Downloading $UNITY_IOS_PLATFORM_URL"
+            curl -o ./ios.pkg $UNITY_IOS_PLATFORM_URL
+
+            #install from unity packages
+            sudo installer -pkg ./unity.pkg -target /
+            sudo installer -pkg ./ios.pkg -target /
+
+
+
+    - script@1:
+        title: Activate Unity license MacOS
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            # write your script here
+
+            MISSING="FALSE"
+
+            if [[ -z "$UNITY_SERIAL" ]]; then
+                echo "UNITY_SERIAL was not set"
+                MISSING="TRUE"
+            fi
+
+            if [[ -z "$UNITY_EMAIL" ]]; then
+                echo "UNITY_EMAIL was not set"
+                MISSING="TRUE"
+            fi
+
+            if [[ -z "$UNITY_PW" ]]; then
+                echo "UNITY_PW was not set"
+                MISSING="TRUE"
+            fi
+
+            if [[ $MISSING == "TRUE" ]]; then
+                echo "*** License activation failed due to missing inputs. ***"
+                echo "Ensure your Unity license and credentials are added - see https://devcenter.bitrise.io/en/getting-started/unity-on-bitrise.html#adding-unity-license-pools"
+                exit 1
+            fi
+
+            #https://docs.unity3d.com/Manual/ActivationFAQ.html#licensefilefolders - will fail if Application Support folder doesn't exist
+            [ ! -d "/Library/Application Support/Unity" ] && echo "License folder doesn't exist"
+
+
+            /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -serial $UNITY_SERIAL -username "$UNITY_EMAIL" -password "$UNITY_PW" -nographics -logfile "$BITRISE_DEPLOY_DIR/UnityActivateLicense.log"
+
+    - script@1:
+        title: Run Unity build for iOS
+        inputs:
+        - content: |+
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            echo "Outputs will be an Xcode project"
+
+            export COMPLus_ReadyToRun=0
+            envman add --key COMPlus_ReadyToRun --value 0
+
+            echo "Run build"
+            /Applications/Unity/Unity.app/Contents/MacOS/Unity -nographics -quit -batchmode -logFile "$BITRISE_DEPLOY_DIR/UnityiOSBuild.log" -projectPath "$BITRISE_SOURCE_DIR" -executeMethod BuildScript.BuildIos -buildOutput "$BITRISE_SOURCE_DIR/xcodebuild/"
+
+            echo "Make zip of build in artifacts as $BITRISE_DEPLOY_DIR/UnityProject.zip"
+            zip -r "$BITRISE_DEPLOY_DIR/UnityProject.zip" "$BITRISE_SOURCE_DIR/xcodebuild"
+
+            export PROJECT_PATH="$BITRISE_SOURCE_DIR/xcodebuild/Unity-iPhone.xcodeproj"
+
+            echo "Setting PROJECT_PATH to xcodeproj at $BITRISE_SOURCE_DIR/xcodebuild/Unity-iPhone.xcodeproj"
+            envman add --key PROJECT_PATH --value $PROJECT_PATH
+
+    - script@1:
+        is_skippable: true
+        title: Deactivate Unity license MacOS
+        inputs:
+        - content: |
+            #!/usr/bin/env bash
+            # fail if any commands fails
+            set -e
+            # make pipelines' return status equal the last command to exit with a non-zero status, or zero if all commands exit successfully
+            set -o pipefail
+            # debug log
+            set -x
+
+            /Applications/Unity/Unity.app/Contents/MacOS/Unity -quit -batchmode -logfile "$BITRISE_DEPLOY_DIR/UnityDeactivateLicense.log" -nographics -returnlicense -username "$UNITY_EMAIL" -password "$UNITY_PW" -returnlicense
+        is_always_run: true
+    - deploy-to-bitrise-io@2: {}
+    meta:
+      bitrise.io:
+        license_pool_id: 7d06c7af-09bc-46a6-bcc5-ae52a3d4ffcb
+        stack: osx-xcode-15.2.x-edge
+        machine_type_id: g2-m1-max.10core
+meta:
+  bitrise.io:
+    stack: osx-xcode-15.2.x-edge
+    machine_type_id: g2-m1-max.10core
+app:
+  envs:
+  - opts:
+      is_expand: false
+    UNITY_MAIN_PACKAGE_URL: https://download.unity3d.com/download_unity/244b723c30a6/MacEditorInstallerArm64/Unity.pkg
+  - opts:
+      is_expand: false
+    UNITY_ANDROID_PLATFORM_URL: https://download.unity3d.com/download_unity/244b723c30a6/MacEditorTargetInstaller/UnitySetup-Android-Support-for-Editor-2022.3.19f1.pkg
+  - opts:
+      is_expand: false
+    UNITY_IOS_PLATFORM_URL: https://download.unity3d.com/download_unity/244b723c30a6/MacEditorTargetInstaller/UnitySetup-iOS-Support-for-Editor-2022.3.19f1.pkg
+  - opts:
+      is_expand: false
+    UNITY_PROJECT_PATH: "."
+  - opts:
+      is_expand: false
+    UNITY_MAIN_PACKAGE_URL_LINUX: https://download.unity3d.com/download_unity/244b723c30a6/UnitySetup-2022.3.19f1
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: Unity-iPhone
+  - opts:
+      is_expand: false
+    IOS_APP_BUNDLE_ID: com.domain.unitytest
