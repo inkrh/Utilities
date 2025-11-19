@@ -1,3 +1,0 @@
-FEMA.db
-
-Contains data provided by FEMA, fetched and added to from 2017 to 2019 when the service was shut down by US government political decisions.
