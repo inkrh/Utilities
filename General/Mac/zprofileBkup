@@ -1,0 +1,41 @@
+echo "Hello $USER"
+echo "Setting up paths, proxies and aliases"
+echo
+ 
+eval $(/usr/libexec/path_helper -s)
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_TOOLS=$ANDROID_HOME/tools
+export ANDROID_AVD_HOME=$HOME/.android/avd
+
+
+#separated out for convenience
+export PATH="/usr/local/lib:${PATH}"
+export PATH="$PATH:/usr/local/lib/node_modules/"
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home/"
+
+export PATH="$PATH:$ANDROID_HOME"
+export PATH="$PATH:$ANDROID_TOOLS"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="/opt/homebrew/bin:$PATH"
+
+alias lsusb="system_profiler SPUSBDataType"
+alias usage="du -shx * | sort -rh | head -10"
+alias addToLFS='for f in $(find . -type f -size +50M); do git lfs track "$f"; done'
+alias gut="git"
+alias android="open /Applications/Android\ Studio.app/"
+alias logcat="$ANDROID_HOME/platform-tools/adb logcat"
+export currentdate=$(date '+%Y%m%d')
+alias bkupDownloadsFolder='zip -r -X "~/OldDownloads_$currentdate" "~/Downloads"'
+alias zipWithoutHidden='zip -r -X'
+
+
+echo "Path is:"
+echo "$PATH"
+echo
+echo "Aliases defined:"
+alias
+echo "READY"
+echo
+
