@@ -1,4 +1,0 @@
-SecurityNews.db filter=lfs diff=lfs merge=lfs -text
-CountryCodes.db filter=lfs diff=lfs merge=lfs -text
-FeedHistory.db filter=lfs diff=lfs merge=lfs -text
-FEMA.db filter=lfs diff=lfs merge=lfs -text

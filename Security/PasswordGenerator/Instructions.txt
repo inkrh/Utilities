@@ -1,0 +1,11 @@
+Permissions for script to run
+
+	sudo chmod +x PasswordGenerator
+
+Use
+
+	./PasswordGenerator <filename>
+
+Example
+
+	./PasswordGenerator output.txt

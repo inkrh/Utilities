@@ -4,11 +4,11 @@ from PIL import Image
 from resizeimage import resizeimage
 import sys
 
-sizes = [29,40,50,57,58,72,76,80,87,100,114,120,144,152,167,180,512,1024]
+sizes = [16,20,29,32,40,48,50,55,56,57,58,60,64,72,76,80,87,88,98,100,114,120,128,144,152,167,172,180,196,216,256,512,1024]
 
 def resize(filename, image, x,y):
     output = resizeimage.resize_cover(image, [x,y], validate=False)
-    output.save(str(filename) + str(x)+"x" + str(y) + ".png", "PNG")
+    output.save(str(filename) + "-"+str(x) + ".png", "PNG")
 
 
 def iterateSizes(filename):
