@@ -1,6 +1,6 @@
 * Backup repo of commonly used utilities and interesting data
 
-
+A lot of this no longer works, I just keep it to remind me of what I was doing
 
 If you're not me and using any of this (or if you are me and are too tired to think) - most files and projects on my account are really just snippets of bits and pieces or aide memoire and may need a few tweaks here and there to work. I tend to do this on my local copies and might check in changes I have time / need / inclination / lack of anything more interesting to do.
 
