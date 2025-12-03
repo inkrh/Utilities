@@ -1,0 +1,5 @@
+URL,Live,GoogleFonts,Wordpress,Wordpress VIP,http,https,httpwww,httpswww,bestProtocol
+google.com,Live Website,False,False,False,Live Website: 17830 bytes returned,Live Website: 17663 bytes returned,Live Website: 17830 bytes returned,Live Website: 83993 bytes returned,https://www.google.com
+deadsite.tld,Dead Website,False,False,False,Error Name Resolution Failed,Error Name Resolution Failed,Error Name Resolution Failed,Error Name Resolution Failed,
+flooded.city,Live Website,True,True,False,Live Website: 74064 bytes returned Wordpress Google Fonts,Live Website: 74064 bytes returned Wordpress Google Fonts,Live Website: 74064 bytes returned Wordpress Google Fonts,Live Website: 74064 bytes returned Wordpress Google Fonts,https://www.flooded.city
+inkrh.com,Live Website,False,False,False,Live Website: 11325 bytes returned,Live Website: 11325 bytes returned,Live Website: 11325 bytes returned,Live Website: 11325 bytes returned,https://www.inkrh.com
