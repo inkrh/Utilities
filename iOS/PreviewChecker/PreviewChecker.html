@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta encoding="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iOS Safe Area</title>
+  <link rel="stylesheet" type="text/css" href="css/AltDevices.css" />
+</head>
+
+<body>
+  <div id="maincontent" class="container">
+    <select id="contentSwitch" onchange="switchContent(this.value)">
+      <option value="xsmax">iPhone XS Max</option>
+      <option value="8p">iPhone 8 Plus</option>
+      <option value="ipadpro">iPad Pro</option>
+    </select>
+    <span></span>
+    <select id="orientationSwitch" onchange="switchOrientation(this.value)">
+      <option value="">Portrait</option>
+      <option value="l">Landscape</option>
+    </select>
+    <div id="xsmax" class="container">
+      <div>
+        <h1>iPhone XS Max Safe Area</h1>
+        <p class="specs">1242 x 2688px (iPhone 6.5") images.</p>
+      </div>
+      <div class="container">
+        <div id="iphone-xsmax">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-iphone-xsmax animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttext">Drop a design in png or jpg format to preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+                    <div class="device-home"></div>
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="8p" class="container">
+      <h1>iPhone 8+ Safe Area</h1>
+      <p class="specs">1242 x 2208 px (iPhone 5.5") images.</p>
+      <div class="container">
+        <div id="iphone-8">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-iphone-8p animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttext">Drop a design in png or jpg format to preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+                <div class="device-home"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ipadpro" class="container">
+      <h1>iPad Pro Safe Area</h1>
+      <p class="specs">2048 x 2732px (iPad 12.9") images.</p>
+      <div class="container">
+        <div id="ipad-pro">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-ipad-pro animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttext">Drop a design in png or jpg format to preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+                <div class="device-home"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="xsmaxl" class="container">
+      <div>
+        <h1>iPhone XS Max Safe Area</h1>
+        <p class="specs">2688 x 1242 px (iPhone 6.5") images.</p>
+      </div>
+      <div class="container">
+        <div id="iphone-xsmax-landscape">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-iphone-xsmax-landscape animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttextlandscape">Drop a design in png or jpg format to
+                      preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+                    <div class="device-home"></div>
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="8pl" class="container">
+      <h1>iPhone 8+ Safe Area</h1>
+      <p class="specs">2208 x 1242 px (iPhone 5.5") images.</p>
+      <div class="container">
+        <div id="iphone-8-landscape">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-iphone-8p-landscape animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttextlandscape">Drop a design in png or jpg format to
+                      preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+                <div class="device-home"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ipadprol" class="container">
+      <h1>iPad Pro Safe Area</h1>
+      <p class="specs">2732 x 2048px (iPad 12.9") images.</p>
+      <div class="container">
+        <div id="ipad-pro-landscape">
+          <div class="columns">
+            <div class="column">
+              <div class="device device-ipad-pro-landscape animate">
+                <div class="device-frame">
+                  <div class="device-content animate-bg" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <label for="file-select" class="contenttextlandscape">Drop a design in png or jpg format to
+                      preview.</label>
+                    <input id="file-select" name="file-select" type="file" accept="image/*" onchange="drop(event)" />
+                    <div class="device-arealeftmargin"></div>
+                    <div class="device-arearightmargin"></div>
+                    <div class="device-areahomebar"></div>
+                    <div class="device-areastatusbar"></div>
+                  </div>
+                </div>
+                <div class="device-stripe"></div>
+                <div class="device-header"></div>
+                <div class="device-sensors"></div>
+                <div class="device-btns"></div>
+                <div class="device-power"></div>
+                <div class="device-home"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="specs">Keep red area clear of foreground content and interactive items.<br />
+    Keep yellow area clear of interactive items.</p>
+  <p class="specs">Based on devices.css.</p>
+  <script src="js/zepto.min.js"></script>
+  <script src="js/handler.js"></script>
+</body>
+
+</html>
