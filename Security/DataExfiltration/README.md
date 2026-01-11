@@ -6,6 +6,6 @@ Use case is to be able to send an image that can be embedded into another image 
   
  Currently relies on factor, xxd, ImageMagick, to be truly usable those would be replaced by home-rolled utilities in order to only leverage what is on a Unix/Linux system by default.
  
- Many improvements still needed. Not used in live systems, exists purely as a proof of concepts.
+ Many improvements still needed. Not used in live systems, exists purely as a proof of concept.
  
  
