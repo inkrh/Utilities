@@ -1,0 +1,4 @@
+framework module CommonComponents {
+  header "CommonComponents-Swift.h"
+  requires objc
+}

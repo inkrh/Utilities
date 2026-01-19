@@ -1,0 +1,122 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name CommonComponents
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
+import CommonCrypto
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct CheckLayout {
+  public static func buttonSize(_ size: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public static func fontSize(_ size: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public static func bodyFontSize(_ size: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public static func isContrastOK(colorOne: UIKit.UIColor, colorTwo: UIKit.UIColor) -> Swift.Bool
+}
+extension UIKit.UIImage {
+  #if compiler(>=5.3) && $NonescapableTypes
+  convenience public init?(color: UIKit.UIColor, size: CoreFoundation.CGSize = CGSize(width: 1, height: 1))
+  #endif
+}
+extension Foundation.Bundle {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var releaseVersionNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var buildVersionNumber: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var bundleIdentifier: Swift.String? {
+    get
+  }
+  #endif
+  public var releaseVersionNumberPretty: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var releaseName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var releaseDisplayName: Swift.String? {
+    get
+  }
+  #endif
+}
+extension UIKit.UIButton {
+  @_Concurrency.MainActor @preconcurrency public func setBackgroundColor(_ color: UIKit.UIColor, for state: UIKit.UIControl.State)
+}
+extension UIKit.UITextField {
+  @_Concurrency.MainActor @preconcurrency public func notNil() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func getEscapedText() -> Swift.String
+  @_Concurrency.MainActor @preconcurrency public func isValidEmail() -> Swift.Bool
+  @_Concurrency.MainActor @preconcurrency public func isValidURI() -> Swift.Bool
+}
+extension Swift.Bool {
+  public var asString: Swift.String {
+    get
+  }
+}
+extension Swift.String {
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var asBool: Swift.Bool? {
+    get
+  }
+  #endif
+  public func notNil() -> Swift.Bool
+  public func getEscapedText() -> Swift.String
+  public func isValidEmail() -> Swift.Bool
+  public func isValidURI() -> Swift.Bool
+  public func base64ToImage() -> UIKit.UIImage
+  public func replaceYear() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func toDate(with format: Swift.String) -> Foundation.Date?
+  #endif
+}
+extension UIKit.UIScreen {
+  @_Concurrency.MainActor @preconcurrency public static let screenWidth: CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency public static let screenHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor @preconcurrency public static let screenSize: CoreFoundation.CGSize
+}
+extension Foundation.Date {
+  public static func days(since date: Foundation.Date) -> Swift.Int
+}
+@_hasMissingDesignatedInitializers public class AnalyticsHelper {
+  public func SendEvent(instanceId: Swift.String, event: Swift.String, eventAction: Swift.String, eventLabel: Swift.String, eventValue: Swift.Int)
+  public func SendEvent(instanceId: Swift.String, event: Swift.String)
+  public func SendEvent(instanceId: Swift.String, event: Swift.String, eventAction: Swift.String)
+  public func SendEvent(instanceId: Swift.String, event: Swift.String, eventAction: Swift.String, evenLabel: Swift.String)
+  @objc deinit
+}
+extension UIKit.UIColor {
+  convenience public init(hex: Swift.String, alpha: CoreFoundation.CGFloat = 1.0)
+  public func asColor() -> SwiftUICore.Color
+  public func asCGColor() -> CoreGraphics.CGColor
+  public static func contrastRatio(between color1: UIKit.UIColor, and color2: UIKit.UIColor) -> CoreFoundation.CGFloat
+  public func contrastRatio(with color: UIKit.UIColor) -> CoreFoundation.CGFloat
+  public func luminance() -> CoreFoundation.CGFloat
+}
+public struct LayoutConstants {
+  public static let MIN_PADDING: CoreFoundation.CGFloat
+  public static let MAX_PADDING: CoreFoundation.CGFloat
+  public static let MIN_FONT_SIZE: CoreFoundation.CGFloat
+  public static let MIN_BODY_FONT_SIZE: CoreFoundation.CGFloat
+  public static let MIN_BUTTON_SIZE: CoreFoundation.CGFloat
+}
+public func RSLog(_ message: Any)
+public func RSLog(label: Swift.String, message: Any)
+public struct StringError : Swift.Error, Swift.CustomStringConvertible {
+  public let message: Swift.String
+  public var description: Swift.String {
+    get
+  }
+  public init(_ message: Swift.String)
+}
