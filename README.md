@@ -1,4 +1,4 @@
-* Backup repo of commonly used utilities and interesting data
+* Backup repo of commonly used utilities and interesting tools
 
 A lot of this no longer works, I just keep it to remind me of what I was doing
 
